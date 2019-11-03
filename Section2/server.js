@@ -1,33 +1,23 @@
-
 const express = require('express');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+//const logger = require('./middleware/logger')
+const morgan = require('morgan');
+
+//Route files
+const bootcamps = require('./routes/bootcamps');
 
 // Lode env variables
-
 dotenv.config({path: './config/config.env'});
 
 const app = express();
 
-app.get('/api/v1/bootcamps', (req, res) => {
-    res.status(200).json({success:true, msg: 'Show all bootcamps'})
-});
+// Dev logging middleware
+if(process.env.NODE_ENV === 'development'){
+    app.use(morgan('dev'));
+}
 
-app.get('/api/v1/bootcamps/:id', (req, res) => {
-    res.status(200).json({success:true, msg: `Show  bootcamp ${req.params.id}`})
-});
-
-app.post('/api/v1/bootcamps', (req, res) => {
-    res.status(200).json({success:true, msg: 'create  bootcamps'})
-});
-
-app.put('/api/v1/bootcamps/:id', (req, res) => {
-    res.status(200).json({success:true, msg: `update bootcamp ${req.params.id}`})
-});
-
-app.delete('/api/v1/bootcamps/:id', (req, res) => {
-    res.status(200).json({success:true, msg: `delete bootcamp ${req.params.id}`})
-});
-
+//Mount Routes
+app.use('/api/v1/bootcamps', bootcamps)
 
 const PORT = process.env.PORT || 7450;
 
