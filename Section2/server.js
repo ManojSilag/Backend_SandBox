@@ -22,12 +22,13 @@ app.use(express.json());
 if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'));
 }
+
 //Mount Routes
 app.use('/api/v1/bootcamps', bootcamps)
 app.use(errorHandler);
 
 
-const PORT = process.env.PORT || 7450;
+const PORT = process.env.PORT || 7455;
 const server = 
 app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold))
 
