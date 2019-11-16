@@ -7,7 +7,9 @@ const {
   updatetBootcamp,
   deleteBootcamp
 } = require("../controllers/bootcamp");
+
 const router = express("router");
+
 router
   .route("/")
   .get(getBootcamps)

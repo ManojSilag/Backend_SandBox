@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const colors = require("colors");
 //const logger = require('./middleware/logger')
-const morgan = require("morgan");
+const morgan = require("morgan"); // logger
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
 // Lode env variables
@@ -26,6 +26,7 @@ app.use("/api/v1/bootcamps", bootcamps);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 7450;
+
 const server = app.listen(
   PORT,
   console.log(
