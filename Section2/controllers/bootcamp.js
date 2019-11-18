@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 const ErrorResponse = require("../utils/errorResponse");
 const asyncHandler = require("./../middleware/async");
 const geocoder = require("../utils/geocoder");
 const Bootcamp = require("../models/Bootcamp");
+=======
+const Bootcamp = require('../models/Bootcamp');
+const ErrorResponse = require('../utils/errorResponse');
+const asyncHandler = require('./../middleware/async');
+>>>>>>> b0988a0650e7afe20fa6ef69a250765ee31e8c34
 
 // @desc     Get all bootcamps
 // @route    GET /api/v1/bootcamps
@@ -123,6 +129,7 @@ exports.updatetBootcamp = asyncHandler(async (req, res, next) => {
 // @desc     DELETE bootcamp
 // @route    DELETE /api/v1/bootcamps/:id
 // @acess    Private
+<<<<<<< HEAD
 exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
   const bootcamp = await Bootcamp.findByIdAndDelete(req.params.id);
   if (!bootcamp) {
@@ -159,3 +166,12 @@ exports.getBootcampsInRadius = asyncHandler(async (req, res, next) => {
     data: bootcamps
   });
 });
+=======
+exports.deleteBootcamp = asyncHandler(async( req,res, next ) =>{
+    const bootcamp = await Bootcamp.findByIdAndDelete(req.params.id)
+    if(!bootcamp){
+      return  next(new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404))
+    }
+    res.status(200).json({success: true,  data:{}})
+})
+>>>>>>> b0988a0650e7afe20fa6ef69a250765ee31e8c34

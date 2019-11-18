@@ -21,10 +21,12 @@ app.use(express.json());
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
 //Mount Routes
 app.use("/api/v1/bootcamps", bootcamps);
 app.use(errorHandler);
 
+<<<<<<< HEAD
 const PORT = process.env.PORT || 7450;
 
 const server = app.listen(
@@ -33,14 +35,29 @@ const server = app.listen(
     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
   )
 );
+=======
+
+const PORT = process.env.PORT || 7455;
+const server = 
+app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold))
+>>>>>>> b0988a0650e7afe20fa6ef69a250765ee31e8c34
 
 //Handle unhadled promise rejection
 
 process.on("unhandledRejection", (err, promise) => {
   console.log(`Error: ${err.message}`.red);
 
+<<<<<<< HEAD
   //close server and exit process
   server.close(() => {
     process.exit(1);
   });
 });
+=======
+    //close server and exit process
+    server.close(()=>{
+        process.exit(1)
+    })
+    
+})
+>>>>>>> b0988a0650e7afe20fa6ef69a250765ee31e8c34
