@@ -12,7 +12,6 @@ const {
 const router = express("router");
 
 router.route("/radius/:zipcode/:distance").get(getBootcampsInRadius);
-
 router
   .route("/")
   .get(getBootcamps)
