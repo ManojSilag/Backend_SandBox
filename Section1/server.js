@@ -1,12 +1,10 @@
 const http = require('http');
-
 const todos = [
     { id: 1, text: 'Todo One'},
     { id: 2, text: 'Todo Two'},
     { id: 3, text: 'Todo hree'}
 ]
-const server = http.createServer((req, res)=>{
-    
+const server = http.createServer((req, res)=>{  
     // res.statusCode = 404;
     // res.setHeader('Content-Type', 'application/json')
     // res.setHeader('X-powered-By', 'Node.js')
